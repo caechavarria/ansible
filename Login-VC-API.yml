@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  become: no
+
+  tasks:
+    - name: vcenter login
+      uri:
+        url: https://10.215.99.55/rest/com/vmware/cis/session
+        force_basic_auth: yes
+        method: POST
+        user: administrator@vsphere.local
+        password: Lab2021*
+        status_code: 200
+        validate_certs: no
+      register: login
