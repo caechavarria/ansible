@@ -1,12 +1,13 @@
----
-- name: Login into vCenter
-  uri:
-    url: https://{{ vcenter_server }}/rest/com/vmware/cis/session
-    force_basic_auth: yes
-    validate_certs: "{{ validate_certs }}"
-    method: POST
-    user: "{{ vcenter_user }}"
-    password: "{{ vcenter_pass }}"
+--- 
+- 
+  name: "Login into vCenter"
   register: login
+  uri: 
+    force_basic_auth: true
+    method: POST
+    password: "{{ vcenter_pass }}"
+    url: "https://{{ vcenter_server }}/rest/com/vmware/cis/session"
+    user: "{{ vcenter_user }}"
+    validate_certs: "{{ validate_certs }}"
 
 
